@@ -1,0 +1,29 @@
+#0 非法文法
+S,A,B
+S::=BC,B::=B|b,A::=Aa|a
+S
+
+#1 0型文法
+S,A,B
+fwefsdfeSsdfds::=asdfsdflkA,Afsdfewfsdf::=sajdweiof|AA,B::=wim0972-B|dfkjsd
+S
+
+#2 1型文法
+S,A,B
+ASB::=ABAAA|AAAAAa,fiadjfajlkfA::=AAAAAAAABBBBAAA|aadfasdfbvasdsfaBaaaaa,ABdfsfsdif::=weifjaldjfbndngjfkldjfiosefjkl
+S
+
+//特殊情况
+S
+S::=ε
+S
+
+#3 2型文法
+S,A,B
+S::=afiosdfjioffiofoefjo|Aasdfseifj,A::=Af;jsifoesfjjffi,B::=fiwefjlksdjflnvlklj2093ru0s-1ir=0i=0ij`
+S
+
+#4 3型文法
+S,A,B
+S::=Aa|a|b|c|d|i|2|}|3|j,A::=Bb|c,B::=b|3|{|]|`
+S
