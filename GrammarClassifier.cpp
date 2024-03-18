@@ -17,10 +17,10 @@ static vector<string> split(const string &str, const string &delim);
 class Grammar
 {
 private:
-    vector<string> VN;
-    vector<string> VT;
-    vector<string> P;
-    string S;
+    vector<string> VN;  // 非终结符集合
+    vector<string> VT;  // 终结符集合
+    vector<string> P;   // 文法产生式集合
+    string S;           // 开始符号
 
     void generateVT()
     {
