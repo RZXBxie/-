@@ -10,7 +10,7 @@ using namespace std;
 const char *DELIM = ",";
 const char *NONTERMINALS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const char *TERMINALS = "abcdefghijklmnopqrstuvwxyz";
-const char *SPECIAL_TERMINALS = "¦Å ";
+const char *SPECIAL_TERMINALS = "Îµ ";
 
 static vector<string> split(const string &str, const string &delim);
 
@@ -75,14 +75,14 @@ public:
         VN = vn;
         P = p;
         S = s;
-        generateVT(); // ×Ô¶¯Éú³ÉVT
+        generateVT(); // è‡ªåŠ¨ç”ŸæˆVT
     }
 
     void setVN(const vector<string> &vn) { VN = vn; }
     void setP(const vector<string> &p)
     {
         P = p;
-        generateVT(); // ×Ô¶¯Éú³ÉVT
+        generateVT(); // è‡ªåŠ¨ç”ŸæˆVT
     }
     void setS(const string &s) { S = s; }
 
@@ -196,7 +196,7 @@ private:
 
     bool isThreeType()
     {
-        int left_linear = 0, right_linear = 0; // ¼ÇÂ¼Ã¿Ìõ²úÉúÊ½µÄ×óÏßĞÔºÍÓÒÏßĞÔ
+        int left_linear = 0, right_linear = 0; // è®°å½•æ¯æ¡äº§ç”Ÿå¼çš„å·¦çº¿æ€§å’Œå³çº¿æ€§
         for (const string &production : G.getP())
         {
             size_t pos = production.find("::=");
@@ -277,19 +277,19 @@ static vector<string> split(const string &str, const string &delim)
 
 static void runGrammarCheck()
 {
-    cout << "Çë°´ÕÕÌáÊ¾ÊäÈëÎÄ·¨G£º" << endl;
-    cout << "ÎÄ·¨ÊäÈë¸ñÊ½£º\n1¡¢µÚÒ»ĞĞÊäÈë·ÇÖÕ½á·û\n2¡¢µÚ¶şĞĞÊäÈëÎÄ·¨²úÉúÊ½\n3¡¢µÚÈıĞĞÊäÈë¿ªÊ¼·ûºÅ" << endl;
-    cout << "ÀıÈç£º\n\tS,A,B\n\tS::=a|A,A|Bb,B::=b\n\tS\n";
+    cout << "è¯·æŒ‰ç…§æç¤ºè¾“å…¥æ–‡æ³•Gï¼š" << endl;
+    cout << "æ–‡æ³•è¾“å…¥æ ¼å¼ï¼š\n1ã€ç¬¬ä¸€è¡Œè¾“å…¥éç»ˆç»“ç¬¦\n2ã€ç¬¬äºŒè¡Œè¾“å…¥æ–‡æ³•äº§ç”Ÿå¼\n3ã€ç¬¬ä¸‰è¡Œè¾“å…¥å¼€å§‹ç¬¦å·" << endl;
+    cout << "ä¾‹å¦‚ï¼š\n\tS,A,B\n\tS::=a|A,A|Bb,B::=b\n\tS\n";
 
     Grammar G;
     for (int i = 0; i < 3; i++)
     {
         if (i == 0)
-            cout << "ÇëÊäÈë·ÇÖÕ½á·û(ÒÔ¶ººÅ¸ô¿ªÓ¢ÎÄ´óĞ´×ÖÄ¸)£º";
+            cout << "è¯·è¾“å…¥éç»ˆç»“ç¬¦(ä»¥é€—å·éš”å¼€è‹±æ–‡å¤§å†™å­—æ¯)ï¼š";
         else if (i == 1)
-            cout << "ÇëÊäÈëÎÄ·¨²úÉúÊ½P(ÒÔ¶ººÅ¸ô¿ªÃ¿¸ö²úÉúÊ½)£º";
+            cout << "è¯·è¾“å…¥æ–‡æ³•äº§ç”Ÿå¼P(ä»¥é€—å·éš”å¼€æ¯ä¸ªäº§ç”Ÿå¼)ï¼š";
         else if (i == 2)
-            cout << "ÇëÊäÈë¿ªÊ¼·ûºÅ£º";
+            cout << "è¯·è¾“å…¥å¼€å§‹ç¬¦å·ï¼š";
         string tmp;
         cin >> tmp;
         vector<string> parts = split(tmp, DELIM);
@@ -327,7 +327,7 @@ static void runGrammarCheck()
         return;
     }
 
-    cout << "ÄúÊäÈëµÄÎÄ·¨GÊÇ:" << endl;
+    cout << "æ‚¨è¾“å…¥çš„æ–‡æ³•Gæ˜¯:" << endl;
     cout << "G[" << G.getS() << "] = ({";
     for (size_t i = 0; i < G.getVN().size(); ++i)
     {
@@ -344,14 +344,14 @@ static void runGrammarCheck()
     }
     cout << "}, P, " << G.getS() << ")" << endl;
 
-    cout << "ÆäÖĞ,   PÎª:" << endl;
+    cout << "å…¶ä¸­,   Pä¸º:" << endl;
     for (const string &production : G.getP())
         cout << "\t" << production << endl;
 
     if (type == -1)
-        cout << "·Ç·¨£¡" << endl;
+        cout << "éæ³•ï¼" << endl;
     else
-        cout << "¸ÃÎÄ·¨ÊÇChomsky" << type << "ĞÍÎÄ·¨" << endl;
+        cout << "è¯¥æ–‡æ³•æ˜¯Chomsky" << type << "å‹æ–‡æ³•" << endl;
     cout << endl;
     system("pause");
     system("cls");
@@ -362,7 +362,7 @@ int main()
     int flag = 1;
     while (flag)
     {
-        cout << "ÊäÈë 1 ½øĞĞÎÄ·¨¼ì²â£¬ÊäÈë 0 ÍË³ö£º" << endl;
+        cout << "è¾“å…¥ 1 è¿›è¡Œæ–‡æ³•æ£€æµ‹ï¼Œè¾“å…¥ 0 é€€å‡ºï¼š" << endl;
         cin >> flag;
         if (flag == 0)
             break;
